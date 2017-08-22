@@ -145,14 +145,20 @@
 // function fizzBuzz(countTo) {
 //   let result = [];
 //   for (let i = 1; i <= countTo; i++) {
-//     switch (true) {
-//       case (i % 5 === 0 && i % 3 === 0):
+//     //let fizzbuzz = 
+    
+//     switch (i%15) {
+//       case (0):
 //         result.push("fizzbuzz");
 //         break;
-//       case (i % 3 === 0):
+//       case (3):
+//       case (6):
+//       case (9):
+//       case (12):
 //         result.push("fizz");
 //         break;
-//       case (i % 5 === 0):
+//       case (5):
+//       case (10):
 //         result.push("buzz");
 //         break;
 //       default:
@@ -160,23 +166,23 @@
 //         break;
 //     }
 //   }
-//   return result; 
+//   return result;
 // }
 
+// console.log(fizzBuzz(50));
 
 
-
-/* From here down, you are not expected to 
-   understand.... for now :)  
+// /* From here down, you are not expected to 
+//    understand.... for now :)  
    
    
-   Nothing to see here!
+//    Nothing to see here!
    
-*/
+// */
 
 
 
-// tests
+// // tests
 // (function testFizzBuzz() {
 //   // we'll use the variables in our test cases
 //   const countTo = 16;
@@ -201,26 +207,41 @@
 // })();
 
 
-// Return only names that begin with 'R'
-const myNames = ['Rich', 'Joe', 'Bhaumik', 'Ray'];
+// // Return only names that begin with 'R'
+// const myNames = ['Rich', 'Joe', 'Bhaumik', 'Ray'];
 
-const filteredNames = filter(myNames, function (name) {
-  // This is a "predicate function" - it's a function that only returns a boolean
-  return name[0] === 'R';
-});
+// const filteredNames = filter(myNames, function (name) {
+//   // This is a "predicate function" - it's a function that only returns a boolean
+//   return name[0] === 'R';
+// });
 
-console.log(filteredNames) // => ['Rich', 'Ray']
+// console.log(filteredNames) // => ['Rich', 'Ray']
 
-// TASK -- DEFINE YOUR FILTER FUNCTION BELOW:
-function filter(arr, fn) {
-  const newArray = [];
-  arr.forEach(function (el) {
-    if (el[0] === "R") {
-      newArray.push(el);
-    }
-  });
-  return newArray;
+// // TASK -- DEFINE YOUR FILTER FUNCTION BELOW:
+// function filter(arr, fn) {
+//   const newArray = [];
+//   arr.forEach(function (el) {
+//     if (el[0] === "R") {
+//       newArray.push(el);
+//     }
+//   });
+//   return newArray;
+
+// }
+
+// filter(myNames);
+let movements = [[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]];
+
+function turtleMovements(){
+  //filter out negative steps
+  movements = movements.filter(movement=>movement[0]>=0 && movement[1]>=0);
+ 
+  //use map to add new steps
+  let distances = movements.map(movement=> movement[0]+movement[1]);
+
+  //use forEach
+  distances.forEach(distance=> console.log(distance));
 
 }
 
-filter(myNames);
+console.log(turtleMovements(movements));
