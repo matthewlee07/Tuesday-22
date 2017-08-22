@@ -166,17 +166,17 @@
 
 
 
-/* From here down, you are not expected to 
-   understand.... for now :)  
+// /* From here down, you are not expected to 
+//    understand.... for now :)  
    
    
-   Nothing to see here!
+//    Nothing to see here!
    
-*/
+// */
 
 
 
-// tests
+// // tests
 // (function testFizzBuzz() {
 //   // we'll use the variables in our test cases
 //   const countTo = 16;
@@ -201,26 +201,19 @@
 // })();
 
 
-// Return only names that begin with 'R'
-const myNames = ['Rich', 'Joe', 'Bhaumik', 'Ray'];
-
-const filteredNames = filter(myNames, function (name) {
-  // This is a "predicate function" - it's a function that only returns a boolean
-  return name[0] === 'R';
-});
-
-console.log(filteredNames) // => ['Rich', 'Ray']
-
-// TASK -- DEFINE YOUR FILTER FUNCTION BELOW:
-function filter(arr, fn) {
-  const newArray = [];
-  arr.forEach(function (el) {
-    if (el[0] === "R") {
-      newArray.push(el);
-    }
-  });
-  return newArray;
-
+function hazardWarningCreator(typeOfWarning){
+  let warningCounter = 0; 
+  return function(location){
+    warningCounter++;
+    console.log(`DANGER! There is a ${typeOfWarning} hazard at ${location}!`); 
+    console.log(`The ${typeOfWarning} hazard alert has triggered ${warningCounter} time(s) today!`)
+  }
 }
 
-filter(myNames);
+const x = hazardWarningCreator("Rocks in road"); 
+const y = hazardWarningCreator("Road is icy");
+const z = hazardWarningCreator("Children crossing ahead");
+
+x("Main Street and Highland Ave");
+y("Grand Ave and Wildwood Ave");
+x("Broadway and Harrison"); 
